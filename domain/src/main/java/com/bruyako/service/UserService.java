@@ -2,6 +2,7 @@ package com.bruyako.service;
 
 import com.bruyako.entity.User;
 import com.bruyako.repository.BaseRepository;
+import com.bruyako.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,8 +16,7 @@ import java.util.List;
 @Service
 public class UserService implements BaseService {
 
-    @Autowired
-    private BaseRepository userRepository;
+    private UserRepository userRepository = new UserRepository();
 
     @Override
     public User getById(int id) {
