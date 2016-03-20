@@ -21,13 +21,11 @@ public class MainController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String authLogin(Model model) {
-
         return "login";
     }
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String homePage(Model model) {
-
         return "home";
     }
 }

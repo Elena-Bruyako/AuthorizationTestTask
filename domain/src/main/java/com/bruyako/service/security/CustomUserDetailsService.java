@@ -1,7 +1,6 @@
-package com.bruyako.service;
+package com.bruyako.service.security;
 
 import com.bruyako.entity.User;
-import com.bruyako.entity.UserRoleEnum;
 import com.bruyako.repository.BaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,7 +11,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -30,18 +28,15 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         User user = getUserByLogin(username);
         Set<GrantedAuthority> roles = new HashSet();
-        roles.add(new SimpleGrantedAuthority(UserRoleEnum.USER.name()));
-        UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getLogin(),
-                user.getPassword(), roles);
-        return userDetails;
+        roles.add(new SimpleGrantedAuthority("ROLE_USER"));
+        return new org.springframework.security.core.userdetails.User(
+                user.getLogin(),
+                user.getPassword(),
+                roles);
     }
 
     public User getUserByLogin(String username) {
-
-        List<User> list = userRepository.getAll();
-
-        for (User user : list) {
-
+        for (User user : userRepository.getAll()) {
             if (user.getLogin().equals(username)) {
                 return user;
             }

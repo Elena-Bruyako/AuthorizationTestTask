@@ -1,2 +1,2 @@
-insert into USER(ID, LOGIN, PASSWORD, NAME) values (1, 'ivan', 'secret', 'Иван');
-insert into USER(ID, LOGIN, PASSWORD, NAME) values (2, 'john', 'smith', 'John');
+insert into USER(ID, LOGIN, PASSWORD, NAME) values (1, 'ivan', '2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b', 'Иван');
+insert into USER(ID, LOGIN, PASSWORD, NAME) values (2, 'john', '6627835f988e2c5e50533d491163072d3f4f41f5c8b04630150debb3722ca2dd', 'John');
