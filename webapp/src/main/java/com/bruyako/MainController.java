@@ -19,13 +19,15 @@ public class MainController {
     @Autowired
     private BaseService<User> service;
 
-    @RequestMapping(value = "/temp", method = RequestMethod.GET)
-    public String getAllUsers(Model model) {
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String authLogin(Model model) {
 
-        List<User> list = service.getAll();
+        return "login";
+    }
 
-        model.addAttribute("allUsers", service.getAll());
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String homePage(Model model) {
 
-        return "temp";
+        return "home";
     }
 }
