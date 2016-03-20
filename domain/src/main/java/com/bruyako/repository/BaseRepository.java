@@ -1,15 +1,19 @@
 package com.bruyako.repository;
 
-import com.bruyako.entity.User;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 /**
  * Created by brunyatko on 20.03.16.
  */
-public interface BaseRepository  {
+public abstract class BaseRepository <T> {
 
-    User getById(int id);
+    @Autowired
+    protected SessionFactory sessionFactory;
 
-    List<User> getAll();
+    public abstract T getById(int id);
+
+    public abstract List<T> getAll();
 }
