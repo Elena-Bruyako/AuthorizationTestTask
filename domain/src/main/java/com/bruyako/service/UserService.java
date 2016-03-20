@@ -16,7 +16,8 @@ import java.util.List;
 @Service
 public class UserService implements BaseService {
 
-    private UserRepository userRepository = new UserRepository();
+    @Autowired
+    private BaseRepository userRepository;
 
     @Override
     public User getById(int id) {

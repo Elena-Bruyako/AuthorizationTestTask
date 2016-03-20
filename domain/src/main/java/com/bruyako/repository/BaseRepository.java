@@ -1,6 +1,5 @@
 package com.bruyako.repository;
 
-
 import com.bruyako.entity.User;
 
 import java.util.List;
